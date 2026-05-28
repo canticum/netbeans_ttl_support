@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+OpenIDE-Module-Layer: art/cctcc/test/netbeans_mime_resolver/layer.xml
+OpenIDE-Module-Localizing-Bundle: art/cctcc/test/netbeans_mime_resolver/Bundle.properties
+

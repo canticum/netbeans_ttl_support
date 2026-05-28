@@ -1,0 +1,17 @@
+{
+  "scopeName": "source.turtle",
+  "name": "Turtle",
+  "fileTypes": ["ttl"],
+  "patterns": [
+    { "name": "comment.line.number-sign.turtle", "match": "#.*$" },
+    { "name": "keyword.control.directive.turtle", "match": "\\b(PREFIX|BASE)\\b|@(prefix|base)\\b" },
+    { "name": "constant.other.iri.turtle", "match": "<[^>]*>" },
+    { "name": "string.quoted.triple.turtle", "begin": "\"\"\"", "end": "\"\"\"" },
+    { "name": "string.quoted.double.turtle", "begin": "\"", "end": "\"" },
+    { "name": "constant.language.turtle", "match": "@[a-zA-Z]+(-[a-zA-Z0-9]+)*\\b" },
+    { "name": "storage.type.datatype.turtle", "match": "\\^\\^" },
+    { "name": "entity.name.tag.prefixed-name.turtle", "match": "\\b[A-Za-z_][A-Za-z0-9_-]*:[A-Za-z_][A-Za-z0-9_.-]*\\b" },
+    { "name": "keyword.operator.abbreviation.turtle", "match": "\\ba\\b" },
+    { "name": "punctuation.separator.turtle", "match": "[.;,\\[\\]\\(\\)]" }
+  ]
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
+<filesystem>
+  <folder name="Templates">
+    <folder name="Other">
+      <file name="TurtleTemplate.ttl" url="TurtleTemplate.ttl">
+        <attr name="displayName" bundlevalue="art.cctcc.test.netbeans_mime_resolver.Bundle#Templates/Other/TurtleTemplate.ttl"/>
+        <attr name="template" boolvalue="true"/>
+      </file>
+    </folder>
+  </folder>
+</filesystem>
