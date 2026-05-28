@@ -30,5 +30,5 @@ Restart NetBeans after installation. The NetBeans version used to build the modu
 ## Todo
 
 - Naming
-- Default template
+- ~~Default template~~
 - Improve syntax highlighting
