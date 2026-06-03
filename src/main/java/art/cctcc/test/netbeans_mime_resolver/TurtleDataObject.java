@@ -1,6 +1,9 @@
 package art.cctcc.test.netbeans_mime_resolver;
 
 import java.io.IOException;
+import java.util.prefs.Preferences;
+import org.netbeans.api.editor.mimelookup.MimeLookup;
+import org.netbeans.api.editor.settings.SimpleValueNames;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
@@ -11,7 +14,6 @@ import org.openide.loaders.DataObjectExistsException;
 import org.openide.loaders.MultiDataObject;
 import org.openide.loaders.MultiFileLoader;
 import org.openide.util.NbBundle.Messages;
-import org.netbeans.modules.textmate.lexer.api.GrammarRegistration;
 
 //@Messages({"LBL_Turtle_LOADER=Files of Turtle"})
 @Messages({"LBL_Turtle_LOADER=TURTLE TEST LOADER"})
@@ -83,9 +85,22 @@ import org.netbeans.modules.textmate.lexer.api.GrammarRegistration;
 
 public class TurtleDataObject extends MultiDataObject {
 
+//  public TurtleDataObject(FileObject pf, MultiFileLoader loader)
+//          throws DataObjectExistsException, IOException {
+//    super(pf, loader);
+//    registerEditor("text/turtle", true);
+//  }
   public TurtleDataObject(FileObject pf, MultiFileLoader loader)
           throws DataObjectExistsException, IOException {
     super(pf, loader);
+
+    Preferences prefs = MimeLookup.getLookup("text/turtle")
+            .lookup(Preferences.class);
+
+    if (prefs != null) {
+      prefs.put(SimpleValueNames.TEXT_LINE_WRAP, "words");
+    }
+
     registerEditor("text/turtle", true);
   }
 
