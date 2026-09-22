@@ -1,3 +1,9 @@
+/*
+ * Copyright 2026 Chun-yien Chang
+ *
+ * Licensed under the Apache License, Version 2.0.
+ * See the LICENSE file in the project root for license information.
+ */
 package art.cctcc.test.netbeans_mime_resolver;
 
 import javax.swing.text.EditorKit;
@@ -7,8 +13,8 @@ import org.netbeans.modules.editor.NbEditorKit;
 @MimeRegistration(mimeType = "text/turtle", service = EditorKit.class)
 public class TurtleEditorKit extends NbEditorKit {
 
-    @Override
-    public String getContentType() {
-        return "text/turtle";
-    }
+  @Override
+  public String getContentType() {
+    return "text/turtle";
+  }
 }

@@ -27,8 +27,6 @@ through:
 
 Restart NetBeans after installation. The NetBeans version used to build the module should match the NetBeans version where the plugin is installed.
 
-## Todo
+## License
 
-- Naming
-- ~~Default template~~
-- Improve syntax highlighting
+This project is licensed under the Apache License 2.0. See [LICENSE](LICENSE) for details.

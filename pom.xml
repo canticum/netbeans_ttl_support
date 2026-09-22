@@ -5,12 +5,40 @@
   <artifactId>NetBeans_MIME_resolver</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>nbm</packaging>
+  <name>NetBeans Turtle File Type Support</name>
+  <description>
+    Adds Turtle (.ttl) file type support to Apache NetBeans,
+    including MIME recognition, syntax highlighting, a file template,
+    and an editor view.
+  </description>
+  <url>https://github.com/canticum/netbeans_ttl_support</url>
+  <organization>
+    <name>Chun-yien Chang</name>
+  </organization>
+  <licenses>
+    <license>
+      <name>Apache License 2.0</name>
+      <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.release>17</maven.compiler.release>
+    <netbeans.version>RELEASE300</netbeans.version>
+  </properties>
   <build>
     <plugins>
       <plugin>
         <groupId>org.apache.netbeans.utilities</groupId>
         <artifactId>nbm-maven-plugin</artifactId>
         <version>14.5</version>
+        <configuration>
+          <author>Chun-yien Chang</author>
+          <homePageUrl>https://github.com/canticum/netbeans_ttl_support</homePageUrl>
+          <licenseName>Apache License 2.0</licenseName>
+          <licenseFile>${project.basedir}/LICENSE</licenseFile>
+        </configuration>
         <extensions>true</extensions>
       </plugin>
       <plugin>
@@ -126,9 +154,4 @@
       <version>${netbeans.version}</version>
     </dependency>
   </dependencies>
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.release>17</maven.compiler.release>
-    <netbeans.version>RELEASE300</netbeans.version>
-  </properties>
 </project>
