@@ -5,7 +5,7 @@ A NetBeans module that adds basic Turtle (`.ttl`) file type support, including M
 ## Requirements
 
 - JDK 25+
-- NetBeans 30+
+- NetBeans 31+
 
 ## Installation
 

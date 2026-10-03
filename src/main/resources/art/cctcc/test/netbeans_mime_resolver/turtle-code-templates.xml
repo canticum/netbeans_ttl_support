@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE codetemplates PUBLIC
+    "-//NetBeans//DTD Editor Code Templates settings 1.0//EN"
+    "https://netbeans.org/dtds/EditorCodeTemplates-1_0.dtd">
+
+<codetemplates>
+
+  <codetemplate abbreviation="cls" xml:space="preserve">
+    <code><![CDATA[:${id}
+    a owl:Class ;
+    rdfs:label "${label}"@en .
+]]></code>
+    <description><![CDATA[OWL class in Turtle]]></description>
+  </codetemplate>
+
+</codetemplates>
