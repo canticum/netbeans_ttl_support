@@ -6,31 +6,37 @@
 <filesystem>
 
   <folder name="Templates">
-    <folder name="Other">
+    <folder name="Turtle">
+
+      <attr
+        name="SystemFileSystem.localizingBundle"
+        stringvalue="art.cctcc.test.netbeans_mime_resolver.Bundle"/>
+
       <file name="TurtleTemplate.ttl" url="TurtleTemplate.ttl">
         <attr
-            name="displayName"
-            bundlevalue="art.cctcc.test.netbeans_mime_resolver.Bundle#Templates/Other/TurtleTemplate.ttl"/>
+          name="displayName"
+          bundlevalue="art.cctcc.test.netbeans_mime_resolver.Bundle#Templates/Turtle/TurtleTemplate.ttl"/>
         <attr name="template" boolvalue="true"/>
       </file>
+
     </folder>
   </folder>
 
   <folder name="Editors">
-  <folder name="text">
-    <folder name="turtle">
+    <folder name="text">
+      <folder name="turtle">
 
-      <attr
+        <attr
           name="SystemFileSystem.localizingBundle"
           stringvalue="art.cctcc.test.netbeans_mime_resolver.Bundle"/>
 
-      <folder name="CodeTemplates">
-        <file name="turtle-code-templates.xml"
-              url="turtle-code-templates.xml"/>
-      </folder>
+        <folder name="CodeTemplates">
+          <file name="turtle-code-templates.xml"
+                url="turtle-code-templates.xml"/>
+        </folder>
 
+      </folder>
     </folder>
   </folder>
-</folder>
 
 </filesystem>

@@ -277,6 +277,14 @@ The built-in templates are intended to provide concise and syntactically useful 
 
 Domain-specific vocabularies, modeling patterns, and project conventions should normally remain project-local.
 
+## Creating a Turtle File
+
+A Turtle file can be created directly from the NetBeans New File wizard:
+
+```text
+File → New File... → Turtle → Turtle File
+```
+
 ## Design Scope
 
 This plugin focuses on lightweight Turtle editing support inside NetBeans.

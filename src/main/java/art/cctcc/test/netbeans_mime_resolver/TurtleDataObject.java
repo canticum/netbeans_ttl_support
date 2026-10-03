@@ -22,8 +22,7 @@ import org.openide.loaders.MultiDataObject;
 import org.openide.loaders.MultiFileLoader;
 import org.openide.util.NbBundle.Messages;
 
-//@Messages({"LBL_Turtle_LOADER=Files of Turtle"})
-@Messages({"LBL_Turtle_LOADER=TURTLE TEST LOADER"})
+@Messages({"LBL_Turtle_LOADER=Turtle File"})
 @MIMEResolver.ExtensionRegistration(
         displayName = "#LBL_Turtle_LOADER",
         mimeType = "text/turtle",
@@ -32,7 +31,6 @@ import org.openide.util.NbBundle.Messages;
 @DataObject.Registration(
         mimeType = "text/turtle",
         iconBase = "art/cctcc/test/netbeans_mime_resolver/turtle-icon.png",
-        //    iconBase = "/art/cctcc/test/netbeans_mime_resolver/turtle-icon.png",
         displayName = "#LBL_Turtle_LOADER",
         position = 250)
 @ActionReferences({
@@ -86,17 +84,9 @@ import org.openide.util.NbBundle.Messages;
                   id = "org.openide.actions.PropertiesAction"),
           position = 1400)
 })
-//@GrammarRegistration(
-//    grammar = "/art/cctcc/test/netbeans_mime_resolver/turtle.tmLanguage.json",
-//    mimeType = "text/turtle")
 
 public class TurtleDataObject extends MultiDataObject {
 
-//  public TurtleDataObject(FileObject pf, MultiFileLoader loader)
-//          throws DataObjectExistsException, IOException {
-//    super(pf, loader);
-//    registerEditor("text/turtle", true);
-//  }
   public TurtleDataObject(FileObject pf, MultiFileLoader loader)
           throws DataObjectExistsException, IOException {
     super(pf, loader);
