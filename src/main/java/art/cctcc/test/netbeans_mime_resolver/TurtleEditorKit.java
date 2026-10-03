@@ -6,15 +6,34 @@
  */
 package art.cctcc.test.netbeans_mime_resolver;
 
+import javax.swing.Action;
 import javax.swing.text.EditorKit;
+import javax.swing.text.TextAction;
 import org.netbeans.api.editor.mimelookup.MimeRegistration;
+import org.netbeans.editor.ext.ExtKit;
 import org.netbeans.modules.editor.NbEditorKit;
 
-@MimeRegistration(mimeType = "text/turtle", service = EditorKit.class)
+@MimeRegistration(
+        mimeType = "text/turtle",
+        service = EditorKit.class
+)
 public class TurtleEditorKit extends NbEditorKit {
 
   @Override
   public String getContentType() {
     return "text/turtle";
+  }
+
+  @Override
+  protected Action[] createActions() {
+
+    Action[] actions = new Action[] {
+      new ExtKit.ToggleCommentAction("# ")
+    };
+
+    return TextAction.augmentList(
+            super.createActions(),
+            actions
+    );
   }
 }

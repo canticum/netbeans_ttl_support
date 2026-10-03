@@ -5,12 +5,426 @@
 
 <codetemplates>
 
+  <!-- =====================================================
+  Prefix declaration
+  ===================================================== -->
+
+  <codetemplate abbreviation="pfx" xml:space="preserve">
+    <code><![CDATA[@prefix ${prefix}: <${iri}> .
+${cursor}]]></code>
+    <description><![CDATA[Turtle prefix declaration]]></description>
+  </codetemplate>
+
+  <codetemplate
+    abbreviation="pre"
+    xml:space="preserve"
+    contexts="turtle-prologue">
+  <code><![CDATA[PREFIX ${prefix}: <${iri}>
+${cursor}]]></code>
+  <description><![CDATA[SPARQL-style Turtle prefix declaration]]></description>
+</codetemplate>
+
+  <!-- =====================================================
+       W3C core semantic-web vocabularies
+       ===================================================== -->
+
+  <codetemplate abbreviation="w3c" xml:space="preserve">
+    <code><![CDATA[PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+
+${cursor}]]></code>
+    <description><![CDATA[Core W3C RDF/RDFS/OWL/XSD prefixes]]></description>
+  </codetemplate>
+
+
+  <!-- =====================================================
+       Common vocabularies
+       ===================================================== -->
+
+  <codetemplate abbreviation="voc" xml:space="preserve">
+    <code><![CDATA[PREFIX schema:  <https://schema.org/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+PREFIX prov:    <http://www.w3.org/ns/prov#>
+
+${cursor}]]></code>
+    <description><![CDATA[Common Schema.org, Dublin Core, SKOS and PROV vocabularies]]></description>
+  </codetemplate>
+
+
+  <!-- =====================================================
+       Upper / foundational ontology stack
+       ===================================================== -->
+
+  <codetemplate abbreviation="upper" xml:space="preserve">
+    <code><![CDATA[PREFIX bfo: <http://purl.obolibrary.org/obo/BFO_>
+PREFIX ro:  <http://purl.obolibrary.org/obo/RO_>
+PREFIX iao: <http://purl.obolibrary.org/obo/IAO_>
+
+${cursor}]]></code>
+    <description><![CDATA[BFO, Relation Ontology and IAO prefixes]]></description>
+  </codetemplate>
+
+
+  <!-- =====================================================
+       Individual common prefixes
+       ===================================================== -->
+
+  <codetemplate abbreviation="schema" xml:space="preserve">
+    <code><![CDATA[PREFIX schema: <https://schema.org/>
+
+${cursor}]]></code>
+    <description><![CDATA[Schema.org prefix]]></description>
+  </codetemplate>
+
+  <codetemplate abbreviation="bfo" xml:space="preserve">
+    <code><![CDATA[PREFIX bfo: <http://purl.obolibrary.org/obo/BFO_>
+
+${cursor}]]></code>
+    <description><![CDATA[Basic Formal Ontology prefix]]></description>
+  </codetemplate>
+
+  <codetemplate abbreviation="ro" xml:space="preserve">
+    <code><![CDATA[PREFIX ro: <http://purl.obolibrary.org/obo/RO_>
+
+${cursor}]]></code>
+    <description><![CDATA[Relation Ontology prefix]]></description>
+  </codetemplate>
+
+  <codetemplate abbreviation="iao" xml:space="preserve">
+    <code><![CDATA[PREFIX iao: <http://purl.obolibrary.org/obo/IAO_>
+
+${cursor}]]></code>
+    <description><![CDATA[Information Artifact Ontology prefix]]></description>
+  </codetemplate>
+
+  <codetemplate abbreviation="sh" xml:space="preserve">
+    <code><![CDATA[PREFIX sh: <http://www.w3.org/ns/shacl#>
+
+${cursor}]]></code>
+    <description><![CDATA[SHACL prefix]]></description>
+  </codetemplate>
+
+  <!-- =====================================================
+  OWL class
+  ===================================================== -->
+
   <codetemplate abbreviation="cls" xml:space="preserve">
     <code><![CDATA[:${id}
     a owl:Class ;
     rdfs:label "${label}"@en .
-]]></code>
+
+${cursor}]]></code>
     <description><![CDATA[OWL class in Turtle]]></description>
   </codetemplate>
 
+
+  <!-- =====================================================
+  OWL object property
+  ===================================================== -->
+
+  <codetemplate abbreviation="op" xml:space="preserve">
+    <code><![CDATA[:${id}
+    a owl:ObjectProperty ;
+    rdfs:label "${label}"@en ;
+    rdfs:domain ${domain} ;
+    rdfs:range ${range} .
+
+${cursor}]]></code>
+    <description><![CDATA[OWL object property in Turtle]]></description>
+  </codetemplate>
+
+
+  <!-- =====================================================
+  OWL datatype property
+  ===================================================== -->
+
+  <codetemplate abbreviation="dp" xml:space="preserve">
+    <code><![CDATA[:${id}
+    a owl:DatatypeProperty ;
+    rdfs:label "${label}"@en ;
+    rdfs:domain ${domain} ;
+    rdfs:range ${datatype} .
+
+${cursor}]]></code>
+    <description><![CDATA[OWL datatype property in Turtle]]></description>
+  </codetemplate>
+
+
+  <!-- =====================================================
+  Named individual
+  ===================================================== -->
+
+  <codetemplate abbreviation="ind" xml:space="preserve">
+    <code><![CDATA[:${id}
+    a ${class} ;
+    rdfs:label "${label}"@en .
+
+${cursor}]]></code>
+    <description><![CDATA[Named individual in Turtle]]></description>
+  </codetemplate>
+
+
+  <!-- =====================================================
+  Ontology metadata block
+  ===================================================== -->
+
+  <codetemplate abbreviation="ont" xml:space="preserve">
+    <code><![CDATA[<${ontologyIri}>
+    a owl:Ontology ;
+    dcterms:title "${title}"@en ;
+    dcterms:description "${description}"@en ;
+    dcterms:creator "${creator}" ;
+    dcterms:created "${date}"^^xsd:date ;
+    owl:versionInfo "${version}" .
+
+${cursor}]]></code>
+    <description><![CDATA[OWL ontology metadata block]]></description>
+  </codetemplate>
+
+  <!-- =====================================================
+       Subclass axiom
+       ===================================================== -->
+
+  <codetemplate abbreviation="sub" xml:space="preserve">
+    <code><![CDATA[:${subclass}
+    rdfs:subClassOf :${superclass} .
+
+${cursor}]]></code>
+    <description><![CDATA[RDFS subclass axiom]]></description>
+  </codetemplate>
+
+
+  <!-- =====================================================
+       Inverse object properties
+       ===================================================== -->
+
+  <codetemplate abbreviation="inv" xml:space="preserve">
+    <code><![CDATA[:${property}
+    owl:inverseOf :${inverseProperty} .
+
+${cursor}]]></code>
+    <description><![CDATA[OWL inverse property axiom]]></description>
+  </codetemplate>
+
+
+  <!-- =====================================================
+       Label
+       ===================================================== -->
+
+  <codetemplate abbreviation="lbl" xml:space="preserve">
+    <code><![CDATA[:${subject}
+    rdfs:label "${label}"@${lang} .
+
+${cursor}]]></code>
+    <description><![CDATA[RDFS language-tagged label]]></description>
+  </codetemplate>
+
+
+  <!-- =====================================================
+       Comment
+       ===================================================== -->
+
+  <codetemplate abbreviation="cmt" xml:space="preserve">
+    <code><![CDATA[:${subject}
+    rdfs:comment "${comment}"@${lang} .
+
+${cursor}]]></code>
+    <description><![CDATA[RDFS language-tagged comment]]></description>
+  </codetemplate>
+
+
+  <!-- =====================================================
+       Ontology import
+       ===================================================== -->
+
+  <codetemplate abbreviation="imp" xml:space="preserve">
+    <code><![CDATA[<${ontologyIri}>
+    owl:imports <${importIri}> .
+
+${cursor}]]></code>
+    <description><![CDATA[OWL ontology import]]></description>
+  </codetemplate>
+
+  <!-- =====================================================
+       Existential restriction: someValuesFrom
+       ===================================================== -->
+
+  <codetemplate abbreviation="some" xml:space="preserve">
+    <code><![CDATA[:${class}
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty :${property} ;
+        owl:someValuesFrom :${filler}
+    ] .
+
+${cursor}]]></code>
+    <description><![CDATA[OWL existential restriction (someValuesFrom)]]></description>
+  </codetemplate>
+
+
+  <!-- =====================================================
+       Universal restriction: allValuesFrom
+       ===================================================== -->
+
+  <codetemplate abbreviation="only" xml:space="preserve">
+    <code><![CDATA[:${class}
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty :${property} ;
+        owl:allValuesFrom :${filler}
+    ] .
+
+${cursor}]]></code>
+    <description><![CDATA[OWL universal restriction (allValuesFrom)]]></description>
+  </codetemplate>
+
+
+  <!-- =====================================================
+       Value restriction: hasValue
+       ===================================================== -->
+
+  <codetemplate abbreviation="value" xml:space="preserve">
+    <code><![CDATA[:${class}
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty :${property} ;
+        owl:hasValue :${value}
+    ] .
+
+${cursor}]]></code>
+    <description><![CDATA[OWL value restriction (hasValue)]]></description>
+  </codetemplate>
+
+
+  <!-- =====================================================
+       Minimum cardinality
+       ===================================================== -->
+
+  <codetemplate abbreviation="min" xml:space="preserve">
+    <code><![CDATA[:${class}
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty :${property} ;
+        owl:minCardinality "${cardinality}"^^xsd:nonNegativeInteger
+    ] .
+
+${cursor}]]></code>
+    <description><![CDATA[OWL minimum cardinality restriction]]></description>
+  </codetemplate>
+
+
+  <!-- =====================================================
+       Maximum cardinality
+       ===================================================== -->
+
+  <codetemplate abbreviation="max" xml:space="preserve">
+    <code><![CDATA[:${class}
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty :${property} ;
+        owl:maxCardinality "${cardinality}"^^xsd:nonNegativeInteger
+    ] .
+
+${cursor}]]></code>
+    <description><![CDATA[OWL maximum cardinality restriction]]></description>
+  </codetemplate>
+
+
+  <!-- =====================================================
+       Exact cardinality
+       ===================================================== -->
+
+  <codetemplate abbreviation="exact" xml:space="preserve">
+    <code><![CDATA[:${class}
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty :${property} ;
+        owl:cardinality "${cardinality}"^^xsd:nonNegativeInteger
+    ] .
+
+${cursor}]]></code>
+    <description><![CDATA[OWL exact cardinality restriction]]></description>
+  </codetemplate>
+
+
+  <!-- =====================================================
+       Equivalent classes
+       ===================================================== -->
+
+  <codetemplate abbreviation="eqc" xml:space="preserve">
+    <code><![CDATA[:${class}
+    owl:equivalentClass :${equivalentClass} .
+
+${cursor}]]></code>
+    <description><![CDATA[OWL equivalent class axiom]]></description>
+  </codetemplate>
+
+
+  <!-- =====================================================
+       Equivalent properties
+       ===================================================== -->
+
+  <codetemplate abbreviation="eqp" xml:space="preserve">
+    <code><![CDATA[:${property}
+    owl:equivalentProperty :${equivalentProperty} .
+
+${cursor}]]></code>
+    <description><![CDATA[OWL equivalent property axiom]]></description>
+  </codetemplate>
+
+
+  <!-- =====================================================
+       Disjoint classes
+       ===================================================== -->
+
+  <codetemplate abbreviation="dis" xml:space="preserve">
+    <code><![CDATA[:${class}
+    owl:disjointWith :${otherClass} .
+
+${cursor}]]></code>
+    <description><![CDATA[OWL disjoint class axiom]]></description>
+  </codetemplate>
+
+
+  <!-- =====================================================
+       Type assertion
+       ===================================================== -->
+
+  <codetemplate abbreviation="type" xml:space="preserve">
+    <code><![CDATA[:${individual}
+    a :${class} .
+
+${cursor}]]></code>
+    <description><![CDATA[RDF type assertion]]></description>
+  </codetemplate>
+
+
+  <!-- =====================================================
+       sameAs
+       ===================================================== -->
+
+  <codetemplate abbreviation="same" xml:space="preserve">
+    <code><![CDATA[:${individual}
+    owl:sameAs :${otherIndividual} .
+
+${cursor}]]></code>
+    <description><![CDATA[OWL sameAs assertion]]></description>
+  </codetemplate>
+
+
+  <!-- =====================================================
+       differentFrom
+       ===================================================== -->
+
+  <codetemplate abbreviation="diff" xml:space="preserve">
+    <code><![CDATA[:${individual}
+    owl:differentFrom :${otherIndividual} .
+
+${cursor}]]></code>
+    <description><![CDATA[OWL differentFrom assertion]]></description>
+  </codetemplate>
+  
 </codetemplates>
